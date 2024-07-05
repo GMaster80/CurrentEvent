@@ -1,0 +1,80 @@
+
+  
+  <div class="options">
+    <h1>My Events</h1>
+    <%=link_to "All Events", root_path, class:"contrast"%>
+    <%=link_to "Upcoming Events", events_path(opt: 'upcoming'), class:"contrast"%>
+    <%=link_to "Closed Events", events_path(opt: 'closed'), class:"contrast"%>
+    
+
+  </div>
+  
+  <%=turbo_frame_tag "events" do%>
+<div class="events_cards" id="events_cards">
+  <%if @events.exists?%>
+  <%=turbo_stream_from :events_list%>
+  <% @events.each do |event| %>
+      <div id="events"  >
+      <article id="event_<%=event.id%>" data-controller="hello">
+        <!-- Card header-->
+
+        <header>
+          <div>
+            <strong><%=event.name%></strong> 
+            
+                <div class="view_btn"> 
+                    <%=link_to "View Event", event_path(event), data:{turbo_frame:"aside_detail", hello_target:"link"}%>         
+             
+                  <div class="copy_link" data-action="click->hello#copyLink">
+                    <span class="material-symbols-outlined"> link </span> <small>Copy Link</small>
+               </div>
+
+               </div>
+
+             
+
+             </div>
+          </header>
+
+          <!---- card details-->
+          <div class="grid card_details">
+
+
+              <div class="details">
+                <p class="info"><%=event.format_date%></p>
+                <p class="info_name">Date</p>
+             </div> 
+               <div class="details ">
+                <p class="info"><%=event.capacity%></p>
+                <p class="info_name">Capacity</p>
+             </div>
+
+
+
+          </div>
+          <!-- Card footer-->
+             <footer>
+              <div>
+               <%if (event.return_progress && event.return_progress != 100) && event.available === true %>
+                   <progress value="<%=event.return_progress%>"  max="100"/>
+                 <%else%>
+                   <!--<strong> Event Full</strong> -->
+                   <div class="status" style="color:<%= (event.return_status == "Event Full") ? "#197622" : "#761919"%>;">
+                   <%= event.return_status%>
+                    </div>
+                <%end%>
+                </div>
+              
+              </footer>
+        </article>
+    </div>
+  <% end %>
+  <%else%>
+  <div class="notice">
+    <h1>Sorry, you don't have any events</h1>
+    </div>
+  <%end%>
+</div>
+
+<%= will_paginate @events, :page_links => false %>
+<%end%>

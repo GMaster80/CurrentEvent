@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: guests
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  companions :integer          default(0)
+#  event_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  companions: 1
+  event: one
+
+two:
+  name: MyString
+  companions: 1
+  event: two

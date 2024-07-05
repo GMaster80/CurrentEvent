@@ -1,0 +1,25 @@
+current directory: /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/rbs-3.5.1/ext/rbs_extension
+/Users/yeyfriperalta/.rbenv/versions/3.1.1/bin/ruby -I /Users/yeyfriperalta/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20240612-11666-5dd2mb.rb extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/rbs-3.5.1/ext/rbs_extension
+make DESTDIR\= clean
+
+current directory: /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/rbs-3.5.1/ext/rbs_extension
+make DESTDIR\=
+compiling constants.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling ruby_objs.c
+compiling unescape.c
+linking shared-object rbs_extension.bundle
+ld: warning: -multiply_defined is obsolete
+
+current directory: /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/rbs-3.5.1/ext/rbs_extension
+make DESTDIR\= install
+/opt/homebrew/bin/ginstall -c -m 0755 rbs_extension.bundle ./.gem.20240612-11666-78g2q2

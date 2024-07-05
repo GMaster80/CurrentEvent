@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CurrentEvent</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />   
+    
+    <style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
+}
+</style>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+   
+    <!--Navigation-->
+    <div class="app" data-controller="hello">
+        <!--Navigation-->
+        <%if user_signed_in?%>
+        <div class="navigation">
+        <aside>
+        <nav>
+          <ul>
+            <li><%=link_to "My events ",root_path, class:"secondary"%></li>
+              <li>
+                <%=link_to "New Event", new_event_path,data: {turbo_frame: 'main', action:"click->hello#open"}, class:"secondary"%>
+              </li>
+               
+            </ul>
+          </nav>
+          </aside>
+
+          <div class="account">
+            <div style="display:inline-block;">
+              <span><%=link_to current_user.full_name,edit_user_registration_path, data:{turbo_frame: "main", action:"click->hello#open"},class:"contrast" %></span> 
+              <%=link_to destroy_user_session_path, data:{turbo_method: :delete} do%>
+              <span  style="margin-left:10px;float:right;font-weight:bold;"class="material-symbols-outlined">logout</span>
+              <%end%>
+              </div>
+            </div>
+        </div>
+     <!--End Navigation-->
+
+<!--Modal-->
+      <dialog data-hello-target="modal">
+        <article>
+          <!--Modal Header-->
+        <button data-action="click->hello#closeModal" aria-label="Close" rel="prev" class="close_btn"></button> 
+       
+
+        <!--Modal Content-->
+        <div style="height:600px;">
+        <%=turbo_frame_tag 'main'%>
+        </div>
+        </article>
+        </dialog>
+        <!--End Modal-->
+
+
+          <!--Fetch body from rails-->
+    <div class="body_fetch">
+    <%= yield %>
+      </div>
+
+    <div class="aside_detail">
+      <div class="turbo">
+        <%=turbo_frame_tag "aside_detail" %>
+      </div>
+      <%else%>
+       <div class="body_fetch">
+      <%=yield%>
+      </div>
+      <%end%>
+   
+ </div>
+  
+
+    </div>
+  </body>
+</html>

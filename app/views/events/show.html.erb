@@ -1,0 +1,85 @@
+<%=turbo_frame_tag 'aside_detail' do%>
+<%=turbo_stream_from :event%>
+<div class="event_detail">
+
+      <article>
+        <!-- Card header-->
+
+        <header>
+          <div>
+            <h2 id="name"><%=@event.name%></h2>
+             </div>
+          </header>
+           
+
+          <!---- card details-->
+          <div class="grid card_details" id="view_detail">
+
+
+              <div class="details">
+                <p class="info"><%=@event.format_date%></p>
+                <p class="info_name">Date</p>
+             </div> 
+               <div class="details ">
+                <p class="info"><%=@event.capacity%></p>
+                <p class="info_name">Capacity</p>
+             </div>
+
+          </div>
+
+           <hr>
+           <%if @event.user == current_user%>
+           <div class="options"style= "display:block;">
+                
+                <h2 style="margin-bottom:0px;"> <%=@event.progress%>%</h2>
+                <span style="color: #767373;">Capacity at</span>
+
+                  <div style="margin-top:20px;">
+                <%=link_to "Check List Of Guests",event_guest_path(@event),data: {turbo_frame: 'main', action:"click->hello#open"}, class:"primary"%>
+          </div>
+
+          </div>
+          <%elsif @event.available == false %>
+            <div style="text-align:center; margin-bottom:30px;" >
+            <span class="material-symbols-outlined red" style="font-size:70px;">
+                                    event_busy
+                                                  </span>
+                <h3>SORRY, THE EVENT IS CLOSED</h3>
+              </div>
+
+           <%else%>
+           <%=turbo_frame_tag "guest" do%>
+           <div class="confirmation">
+                <p> <%=(@event.message.empty?) ? "I would love, to have yoy in my party" : @event.message %></p>
+                <small><%=link_to @event.address, @event.map_url,target:"_blank", style:"text-decoration:none;border:none;"%></small>
+                <div class="confirmation_btn">
+                  <%=link_to "I'LL BE THERE",new_event_guest_path(@event), class:"btn contrast"%>
+                  </div>
+            </div>
+            <%end%>
+            <%end%>
+
+          <!-- Card footer-->
+             <footer>
+                 <div class="status" style="text-align:center;color:<%= (@event.return_status == "Event Full") ? "#197622" : "#761919"%>;">
+                   <%= @event.return_status  if (current_user && current_user.id == @event.user.id)%>
+                    </div>
+              </footer>
+        </article>
+    </div>
+    <%if @event.user == current_user%>
+      <div class="options" style="width:auto;margin-top:0px;">
+
+      <%= link_to  edit_event_path(@event),data:{turbo_frame:"main", action:"click->hello#open", tooltip:"Edit event"},style:"margin-right:5px;", class:"contrast" do%>
+        <span class="material-symbols-outlined" style="padding:0px;">edit_square</span>
+      <%end%> 
+
+  <%= link_to  @event, data:{turbo_method: :delete, turbo_frame:"_top",tooltip:"Delete Event"}, class:"contrast" do %>
+      <span class="material-symbols-outlined">
+        delete
+      </span>
+     <%end%>
+  </div>
+<%end%>
+</div>
+<%end%>

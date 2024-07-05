@@ -1,0 +1,23 @@
+
+<%=turbo_frame_tag "guest" do%>
+<div class="guest_form">
+    
+<%=form_with model: ([@event, @event.guests.build]), data:{turbo_frame: "_top"} do |f|%>
+  <div class="container">
+
+    <div>
+     <%=f.label "Your name"%>
+    <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%=f.label "Number of companions"%>
+    <%= f.number_field :companions %>   
+    </div>
+
+    <%=f.submit "Confirm Participation"%>
+</div>
+<%end%>
+
+</div>
+<%end%>

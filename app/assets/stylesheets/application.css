@@ -1,0 +1,263 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ *{
+   box-sizing: border-box;
+ }
+ .app {
+   display: flex;
+   justify-content: center;
+   .navigation{
+      width: 15%;
+   }
+   .body_fetch{
+      width: 60%;
+   
+   }
+   .aside_detail{
+      margin-top: 30px;
+      width: 20%;
+      .turbo{
+         width: 300px;
+         position: fixed;
+         article{
+            border: none;
+         }
+         
+      }
+    
+
+   }
+ 
+ }
+ textarea{
+   resize: none;
+ }
+
+ .navigation{
+    width: 10%;
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+   aside{
+      position: fixed;
+   }
+   .account{
+      position: fixed;
+      bottom: 150px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 80%;
+   
+   }
+   a{
+      text-decoration: none;
+   }
+ }
+ dialog{
+   max-height: 500px;
+   .close_btn{
+      position: sticky;
+      top: 0px;
+      right:0px;
+   }
+ }
+ .notice{
+   margin: 40px auto;
+ }
+ .form{
+   display: flex;
+   width: 50%;
+   justify-content: center;
+   margin: auto;
+   input{
+      width: 200px;
+      margin-right: 5px;
+   }
+ 
+   
+ }
+ .options{
+   margin: 40px auto;
+   text-align: center;
+   a{
+      padding: 10px;
+      text-decoration: none;
+      border:1px solid #858383;
+      border-radius: 5px;
+   }
+   a:hover{
+      color:#afacac; 
+      transition: 0.3s ease-out color;
+   }
+ }
+.form_actions{
+   width: 50%;
+   margin:auto;
+   input[type="submit"]{
+      width: 200px;
+      margin-left: 30px;
+   }
+}
+ .events_cards{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+ }
+ #events{
+    width: 400px;
+    height: 300px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    
+     a {
+        text-decoration: none;
+     }
+ }
+ article{
+    overflow: hidden;
+    padding: 20px;
+    footer{
+     
+         div{
+            text-align: center;
+            progress{
+               margin-bottom: 0px;
+            }
+         }
+    }
+ }
+.view_btn{
+    float: right; 
+    a{
+      font-size: 14px;
+      padding: 10px;
+      text-decoration: none;
+      border:1px solid #afacac;
+      border-radius: 5px;
+   }
+   .copy_link{
+      display: inline;
+          font-size: 14px;
+         padding: 10px;
+         border: 1px solid #fff;
+         border-radius: 5px;
+         cursor: pointer;
+         span{
+            vertical-align: bottom;
+         }
+   }
+   .copy_link:hover{
+      color: #afacac;
+   }
+}
+.status{
+   text-align: center;
+  font-weight: bold;
+}
+.green{
+   
+    display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #197622;
+        border-radius: 50%;
+        
+        
+ }
+ .red{
+      color: #761919; 
+ }/*
+ #view_detail{
+   width: 70%;
+ }*/
+.card_details{
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    &.details{
+        height: 50px;
+        overflow: hidden;
+       
+    }
+    .info{
+        color: hsl(0, 0%, 100%);
+        font-weight: bold;
+        
+     }
+     .info_name{
+        color: #767373;
+        font-size: 18px;
+        
+     }
+   
+}
+#name{
+   text-align: center;
+   margin-top: 5px;
+}
+.event_detail{
+   margin-top: 50px;
+   
+   .confirmation{
+      text-align: center;
+      margin: 0 auto;
+      p{
+         margin-bottom: 0px;
+      }
+      .confirmation_btn{
+         margin-top: 40px;
+      }
+      a{
+         padding: 10px;
+         text-decoration: none;
+         border:1px solid #858383;
+         border-radius: 5px;
+      }
+   }
+   
+}
+
+.
+.registration_form{
+   width: 600px;
+   
+   margin: 40px auto;
+   .container{
+      padding: 10px;
+   }
+}
+.reg{
+  div{
+   margin: 0px;
+   padding: 0px;
+   input{
+      height: 50px;
+      padding: 0px;
+   }
+  }
+}
+.guest_form{
+   margin: 10px auto;
+   width: 50%;
+}
+input:focus{
+   border: none;
+   
+}
+.pagination{
+   text-align: center;
+}

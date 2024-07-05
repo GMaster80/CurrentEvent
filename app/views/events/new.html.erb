@@ -1,0 +1,38 @@
+
+<%=turbo_frame_tag 'main' do%>
+
+
+<%= form_with model: @event, data: {turbo_frame:"_top"} do |form| %>
+<header>
+  <h2 id="name">Add New Event</h2>
+  </header>
+<div class="form" >
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  
+    <%= form.label :event_date, style: "display: block" %>
+    <%= form.datetime_field :event_date %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+ 
+    <%= form.label :capacity, style: "display: block" %>
+    <%= form.number_field :capacity %>
+  </div>
+
+  
+</div>
+ <div style="width:400px;margin:auto;">
+    <%= form.label :message, style: "display: block" %>
+    <%= form.text_area(:message ,size: 10) %>
+  </div>
+
+   <%= form.submit "Save Event"%>
+   </div>
+<% end %>
+
+
+<%end%>

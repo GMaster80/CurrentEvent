@@ -1,0 +1,27 @@
+current directory: /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/prism-0.30.0/ext/prism
+/Users/yeyfriperalta/.rbenv/versions/3.1.1/bin/ruby -I /Users/yeyfriperalta/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20240628-76840-8cr1y6.rb extconf.rb
+checking for prism.h in /Users/yeyfriperalta/Desktop/projects/EventMe/''/gems/prism-0.30.0/include... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/yeyfriperalta/.rbenv/versions/3.1.1/bin/$(RUBY_BASE_NAME)
+extconf.rb:98:in `<main>': prism.h is required (RuntimeError)
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/yeyfriperalta/Desktop/projects/EventMe/''/extensions/arm64-darwin-23/3.1.0/prism-0.30.0/mkmf.log
+
+extconf failed, exit code 1

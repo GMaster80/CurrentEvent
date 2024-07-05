@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  event_date :datetime
+#  address    :string
+#  capacity   :integer          default(0)
+#  available  :boolean          default(TRUE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer          not null
+#  progress   :integer          default(0)
+#  message    :text
+#
+
+one:
+  name: MyString
+  event_date: 2024-06-11 18:16:14
+  address: MyString
+  capacity: 1
+  available: false
+
+two:
+  name: MyString
+  event_date: 2024-06-11 18:16:14
+  address: MyString
+  capacity: 1
+  available: false

@@ -1,0 +1,31 @@
+  <%=turbo_frame_tag "main" do%>
+  
+   <table>
+                <thead>
+                  <tr>
+                  <th scope="col">Guest Name</th>
+                  <th scope="col">Companions </th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                     <%@guests.each do |g|%>
+                    <tr>
+                    
+                      <th scope="row"><%=g.name%></th>
+                      <td><%=g.companions%></td>
+                      
+                      </tr>
+
+                     
+                    
+                      <%end%>
+                        <tr>
+                        <th scope="row" style="color:#197622;">Total of Guests</th> 
+                        <td> <%=@event.return_total%></td>
+                        
+                        </tr>
+                       
+                    </tbody>
+                </table>
+
+<%end%>
